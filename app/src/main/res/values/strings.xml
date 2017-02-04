@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Puzzle liulian6</string>
+    <string name="start_puzzle">Start Puzzle</string>
+    <string name="greeting">Welcome to Liang\'s Puzzle</string>
+    <string name="picSolvedPuzzle">Picuture of the solved puzzle</string>
+</resources>
