@@ -2,8 +2,10 @@ package edu.msu.liulian6.puzzle;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Paint;
+//import android.graphics.Paint;
+import android.os.Bundle;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 
 
@@ -12,7 +14,7 @@ import android.view.View;
  */
 public class PuzzleView extends View {
 
-    private Paint linePaint;
+//    private Paint linePaint;
 
     private Puzzle puzzle;
 
@@ -31,6 +33,11 @@ public class PuzzleView extends View {
         init(attrs, defStyle);
     }
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        return puzzle.onTouchEvent(this, event);
+    }
+
     private void init(AttributeSet attrs, int defStyle) {
         puzzle = new Puzzle(getContext());
 //        linePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -43,9 +50,34 @@ public class PuzzleView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         puzzle.draw(canvas);
+        puzzle.drawSolvedPuzzle(canvas);
 
 //        canvas.drawLine(0, 0, 400, 100, linePaint);
     }
+
+
+    /**
+     * Save the puzzle to a bundle
+     * @param bundle The bundle we save to
+     */
+    public void saveInstanceState(Bundle bundle) {
+        puzzle.saveInstanceState(bundle);
+    }
+
+
+    /**
+     * Load the puzzle from a bundle
+     * @param bundle The bundle we save to
+     */
+    public void loadInstanceState(Bundle bundle) {
+        puzzle.loadInstanceState(bundle);
+    }
+
+
+    public Puzzle getPuzzle() {
+        return puzzle;
+    }
+
 
 
 }

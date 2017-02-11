@@ -21,7 +21,8 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_toEndOf="@+id/spartyImage_land">
+        android:layout_toEndOf="@+id/spartyImage_land"
+        android:layout_toRightOf="@+id/spartyImage_land">
 
         <FrameLayout
             android:layout_width="match_parent"
